@@ -4,7 +4,8 @@
   "description": "To make it easy for you to get started with GitLab, here's a list of recommended next steps.",
   "main": "index.js",
   "scripts": {
-    "compile": "npx sass --watch src/scss/main.scss:src/css/main.css"
+    "compile": "npx sass --watch src/scss/main.scss:src/css/main.css",
+    "lint": "eslint . && stylelint '**/*.{css,scss}'"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +16,7 @@
     "globals": "^16.0.0",
     "sass": "^1.86.0",
     "stylelint": "^16.17.0",
-    "stylelint-config-standard": "^37.0.0"
+    "stylelint-config-standard": "^37.0.0",
+    "stylelint-scss": "^6.11.1"
   }
 }
