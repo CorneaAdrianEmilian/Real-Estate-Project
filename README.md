@@ -17,13 +17,13 @@
     npm run lint
 
 
-  📌 Features
-  Responsive design using Flexbox & CSS Grid
+📌 Features
+Responsive design using Flexbox & CSS Grid
 
-  Dynamic property listings from a JSON file
+Dynamic property listings from a JSON file
 
-  Filtering & sorting options
+Filtering & sorting options
 
-  Interactive image gallery
+Interactive image gallery
 
-  Embedded Google Maps
+Embedded Google Maps
