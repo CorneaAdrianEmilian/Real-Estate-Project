@@ -88,6 +88,12 @@ button {
   font-size: 14px;
 }
 
+header h1 {
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
 body {
   font-family: Arial, sans-serif;
   margin: 0;
