@@ -24,13 +24,12 @@ header nav a {
 
 .slider {
   display: flex;
-  width: 300%;
+  width: 100%;
   transition: transform 0.5s ease-in-out;
 }
 
 .slide {
-  width: 100%;
-  flex: 1;
+  min-width: 100%;
 }
 
 .slide img {
