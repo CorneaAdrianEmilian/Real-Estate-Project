@@ -1,0 +1,92 @@
+[
+  {
+      "id": 1,
+      "title": "Modern Apartment",
+      "location": "New York, USA",
+      "price": "$1,200,000",
+      "size": "120 sqm",
+      "image": "images/apartment1.jpg"
+  },
+  {
+      "id": 2,
+      "title": "Luxury Villa",
+      "location": "Los Angeles, USA",
+      "price": "$3,500,000",
+      "size": "450 sqm",
+      "image": "images/villa.jpg"
+  },
+  {
+      "id": 3,
+      "title": "Cozy House",
+      "location": "Austin, USA",
+      "price": "$850,000",
+      "size": "200 sqm",
+      "image": "images/house.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Beachfront Condo",
+    "location": "Miami, USA",
+    "price": "$2,100,000",
+    "size": "180 sqm",
+    "image": "images/condo.jpg"
+  },
+  {
+      "id": 5,
+      "title": "Rustic Cabin",
+      "location": "Denver, USA",
+      "price": "$620,000",
+      "size": "130 sqm",
+      "image": "images/cabin.jpg"
+  },
+  {
+      "id": 6,
+      "title": "Penthouse Suite",
+      "location": "San Francisco, USA",
+      "price": "$4,800,000",
+      "size": "300 sqm",
+      "image": "images/penthouse.jpg"
+  },
+  {
+      "id": 7,
+      "title": "Suburban Home",
+      "location": "Seattle, USA",
+      "price": "$950,000",
+      "size": "250 sqm",
+      "image": "images/suburban_home.jpg"
+  },
+  {
+      "id": 8,
+      "title": "Skyscraper Apartment",
+      "location": "Chicago, USA",
+      "price": "$1,600,000",
+      "size": "140 sqm",
+      "image": "images/skyscraper_apartment.jpg"
+  },
+  {
+      "id": 9,
+      "title": "Mountain Retreat",
+      "location": "Aspen, USA",
+      "price": "$2,700,000",
+      "size": "350 sqm",
+      "image": "images/mountain_retreat.jpg"
+  },
+  {
+      "id": 10,
+      "title": "Historic Townhouse",
+      "location": "Boston, USA",
+      "price": "$1,300,000",
+      "size": "220 sqm",
+      "image": "images/townhouse.jpg"
+  },
+  {
+      "id": 11,
+      "title": "Countryside Estate",
+      "location": "Nashville, USA",
+      "price": "$5,000,000",
+      "size": "500 sqm",
+      "image": "images/estate.jpg"
+  }
+
+
+]
