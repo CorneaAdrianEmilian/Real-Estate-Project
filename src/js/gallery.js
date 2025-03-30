@@ -1,10 +1,13 @@
 let currentPage = 1;
 const itemsPerPage = 5; 
+let data = [];  
+
 
 document.addEventListener("DOMContentLoaded", function () {
     fetch("./data.json")
         .then(response => response.json())
-        .then(data => {
+        .then(fetchedData => {
+            data = fetchedData;  
             displayGallery(data);
             createPagination(data.length);
         })
@@ -42,16 +45,14 @@ function createPagination(totalItems) {
     const totalPages = Math.ceil(totalItems / itemsPerPage);
     const paginationContainer = document.querySelector("#pagination");
 
-
     paginationContainer.innerHTML = "";
-
 
     for (let i = 1; i <= totalPages; i++) {
         const button = document.createElement("button");
         button.textContent = i;
         button.addEventListener("click", function () {
             currentPage = i;
-            displayGallery(data);
+            displayGallery(data); 
         });
         paginationContainer.appendChild(button);
     }
