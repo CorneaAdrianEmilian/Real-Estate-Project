@@ -2,7 +2,7 @@ let currentPage = 1;
 const itemsPerPage = 5; 
 
 document.addEventListener("DOMContentLoaded", function () {
-    fetch("src/js/data.json")
+    fetch("./data.json")
         .then(response => response.json())
         .then(data => {
             displayGallery(data);
@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function displayGallery(data) {
-    const galleryContainer = document.querySelector(".gallery-container");
+    const galleryContainer = document.querySelector("#gallery-container");
     galleryContainer.innerHTML = ""; 
 
 
