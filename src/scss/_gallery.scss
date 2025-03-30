@@ -35,3 +35,22 @@ header h1 {
   padding: 20px;
 }
 
+#pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+#pagination button {
+  padding: 10px 20px;
+  margin: 0 5px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#pagination button:hover {
+  background-color: #2980b9;
+}
