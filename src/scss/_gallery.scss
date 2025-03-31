@@ -60,6 +60,7 @@ header h1 {
   display: flex;
   justify-content: center;
   margin-top: 20px;
+  gap: 5px;
 }
 
 #pagination button {
@@ -82,6 +83,35 @@ header h1 {
 #pagination button:active {
   background-color: #1f6a91;
 }
+
+
+#filters {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+#filters select, #filters input, #apply-filters {
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+#apply-filters {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px 15px;
+}
+
+#apply-filters:hover {
+  background-color: #2980b9;
+}
+
+
 
 
 @media (max-width: 768px) {
