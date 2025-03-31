@@ -76,17 +76,20 @@ header h1 {
 
 }
 
-#pagination button:hover {
-  background-color: #2980b9;
-}
-
 #pagination button:active {
   background-color: #1f6a91;
 }
 
 
+#pagination button:hover {
+  background-color: #2980b9;
+}
+
+
+
 #filters {
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
   justify-content: center;
   align-items: center;
@@ -113,8 +116,13 @@ header h1 {
 
 
 
-
 @media (max-width: 768px) {
+
+  #filters {
+    flex-direction: column;
+    align-items: center;
+  }
+
   .gallery {
     justify-content: center; 
   }
@@ -135,6 +143,13 @@ header h1 {
 }
 
 @media (max-width: 480px) {
+
+
+  #filters {
+    flex-direction: column;
+    align-items: center;
+  }
+
 
   #gallery-container {
     display: flex; 

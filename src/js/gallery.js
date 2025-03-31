@@ -7,14 +7,17 @@ document.addEventListener("DOMContentLoaded", function () {
     fetch("./data.json")
         .then(response => response.json())
         .then(fetchedData => {
-            data = fetchedData;  
-            filteredData = [...data];  // Default to all data
+            data = fetchedData.map(item => ({
+                ...item,
+                price: parseFloat(item.price.replace(/[^0-9.]/g, "")), 
+                size: parseFloat(item.size.replace(/[^0-9.]/g, ""))    
+            }));
+            filteredData = [...data];  
             displayGallery();
             createPagination();
         })
         .catch(error => console.error("Error loading data:", error));
 
-    // Event listener for applying filters
     document.querySelector("#apply-filters").addEventListener("click", applyFilters);
 });
 
@@ -35,8 +38,8 @@ function displayGallery() {
             <img src="${property.image}" alt="${property.title}">
             <h2>${property.title}</h2>
             <p><strong>Location:</strong> ${property.location}</p>
-            <p><strong>Price:</strong> ${property.price}</p>
-            <p><strong>Size:</strong> ${property.size}</p>
+            <p><strong>Price:</strong> $${property.price.toLocaleString()}</p>
+            <p><strong>Size:</strong> ${property.size} sqft</p>
         `;
 
         galleryContainer.appendChild(card);
