@@ -92,11 +92,21 @@ header h1 {
   flex-wrap: wrap;
   gap: 10px;
   justify-content: center;
-  align-items: center;
+  align-items: center;  /* Ensures vertical alignment */
   margin-bottom: 20px;
+  padding: 10px;
 }
 
-#filters select, #filters input, #apply-filters {
+#filters label, 
+#filters select, 
+#filters input, 
+#apply-filters {
+  vertical-align: middle;  
+}
+
+#filters select, 
+#filters input, 
+#apply-filters {
   padding: 8px;
   border-radius: 5px;
   border: 1px solid #ccc;
@@ -108,6 +118,7 @@ header h1 {
   border: none;
   cursor: pointer;
   padding: 10px 15px;
+  position: static; /* Ensures normal positioning */
 }
 
 #apply-filters:hover {
@@ -121,6 +132,11 @@ header h1 {
   #filters {
     flex-direction: column;
     align-items: center;
+  }
+
+  #apply-filters {
+    width: 100%;  
+    max-width: 200px; 
   }
 
   .gallery {
