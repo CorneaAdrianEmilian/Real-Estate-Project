@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
 function displayGallery() {
     const galleryContainer = document.querySelector("#gallery-container");
     
-    // Add fade-out effect
+  
     galleryContainer.style.opacity = 0;
 
     setTimeout(() => {
@@ -49,9 +49,12 @@ function displayGallery() {
             galleryContainer.appendChild(card);
         });
 
-        // Fade-in effect
+        
         galleryContainer.style.opacity = 1;
-    }, 200); // Delay allows for smoother transition
+        document.querySelector("#pagination").style.display = "flex";
+        
+    }, 200); 
+
 }
 
 function createPagination() {
