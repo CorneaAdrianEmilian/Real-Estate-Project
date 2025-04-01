@@ -39,11 +39,11 @@ function displayGallery() {
             card.classList.add("gallery-card");
 
             card.innerHTML = `
-                <img src="${property.image}" alt="${property.title}">
-                <h2>${property.title}</h2>
-                <p><strong>Location:</strong> ${property.location}</p>
-                <p><strong>Price:</strong> ${property.price} €</p>
-                <p><strong>Size:</strong> ${property.size} sqm</p>
+                <img src="${property.image}" alt="${property.title}" loading="lazy">
+                <h2 tabindex="0">${property.title}</h2> 
+                <p tabindex="0"><strong>Location:</strong> ${property.location}</p> 
+                <p tabindex="0"><strong>Price:</strong> ${property.price} €</p> 
+                <p tabindex="0"><strong>Size:</strong> ${property.size} sqm</p> 
             `;
 
             galleryContainer.appendChild(card);
@@ -52,7 +52,6 @@ function displayGallery() {
         
         galleryContainer.style.opacity = 1;
         document.querySelector("#pagination").style.display = "flex";
-        
     }, 200); 
 
 }
