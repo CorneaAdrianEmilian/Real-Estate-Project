@@ -1,7 +1,7 @@
 let currentPage = 1;
 const itemsPerPage = 10; 
 let data = [];  
-let filteredData = [];  // Stores filtered/sorted data
+let filteredData = []; 
 
 document.addEventListener("DOMContentLoaded", function () {
     fetch("./data.json")
@@ -23,9 +23,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function displayGallery() {
     const galleryContainer = document.querySelector("#gallery-container");
-    
-  
-    galleryContainer.style.opacity = 0;
+
+    galleryContainer.style.opacity = 0; 
 
     setTimeout(() => {
         galleryContainer.innerHTML = ""; 
@@ -45,12 +44,10 @@ function displayGallery() {
                 <p tabindex="0"><strong>Price:</strong> ${property.price} €</p> 
                 <p tabindex="0"><strong>Size:</strong> ${property.size} sqm</p> 
             `;
-
             galleryContainer.appendChild(card);
         });
 
-        
-        galleryContainer.style.opacity = 1;
+        galleryContainer.style.opacity = 1; 
         document.querySelector("#pagination").style.display = "flex";
     }, 200); 
 
@@ -74,11 +71,11 @@ function createPagination() {
     }
 }
 
-// Apply sorting and filtering
+
 function applyFilters() {
     filteredData = [...data];
 
-    // Get sorting option
+  
     const sortOption = document.querySelector("#sort").value;
     switch (sortOption) {
         case "price-low":
@@ -101,7 +98,7 @@ function applyFilters() {
             break;
     }
 
-    // Get location filter
+
     const locationFilter = document.querySelector("#location-filter").value.toLowerCase();
     if (locationFilter) {
         filteredData = filteredData.filter(property => 
@@ -109,7 +106,7 @@ function applyFilters() {
         );
     }
 
-    // Reset to first page when applying filters
+
     currentPage = 1;
     displayGallery();
 }

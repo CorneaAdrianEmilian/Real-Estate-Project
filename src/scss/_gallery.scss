@@ -6,6 +6,8 @@
 }
 
 
+
+
 .gallery-card {
   width: calc(20% - 20px); 
   max-width: 300px; 
@@ -38,7 +40,7 @@
   max-height: 200px;
   object-fit: cover;
   border-radius: 8px;
-  background-color: #f0f0f0;  
+  background-color: #f0f0f0;  /* Placeholder background */
 }
 
 
@@ -181,6 +183,7 @@ header h1 {
   #gallery-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+
   }
 
   #pagination {
