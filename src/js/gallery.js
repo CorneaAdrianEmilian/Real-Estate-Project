@@ -23,29 +23,35 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function displayGallery() {
     const galleryContainer = document.querySelector("#gallery-container");
-    galleryContainer.innerHTML = ""; 
-
-    const startIndex = (currentPage - 1) * itemsPerPage;
-    const endIndex = startIndex + itemsPerPage;
     
-    const currentPageData = filteredData.slice(startIndex, endIndex);
+    // Add fade-out effect
+    galleryContainer.style.opacity = 0;
 
-    currentPageData.forEach(property => {
-        const card = document.createElement("div");
-        card.classList.add("gallery-card");
+    setTimeout(() => {
+        galleryContainer.innerHTML = ""; 
 
-        card.innerHTML = `
-            <img src="${property.image}" alt="${property.title}">
-            <h2>${property.title}</h2>
-            <p><strong>Location:</strong> ${property.location}</p>
-            <p><strong>Price:</strong> $${property.price.toLocaleString()}</p>
-            <p><strong>Size:</strong> ${property.size} sqft</p>
-        `;
+        const startIndex = (currentPage - 1) * itemsPerPage;
+        const endIndex = startIndex + itemsPerPage;
+        const currentPageData = filteredData.slice(startIndex, endIndex);
 
-        galleryContainer.appendChild(card);
-    });
+        currentPageData.forEach(property => {
+            const card = document.createElement("div");
+            card.classList.add("gallery-card");
 
-    createPagination();
+            card.innerHTML = `
+                <img src="${property.image}" alt="${property.title}">
+                <h2>${property.title}</h2>
+                <p><strong>Location:</strong> ${property.location}</p>
+                <p><strong>Price:</strong> ${property.price} €</p>
+                <p><strong>Size:</strong> ${property.size} sqm</p>
+            `;
+
+            galleryContainer.appendChild(card);
+        });
+
+        // Fade-in effect
+        galleryContainer.style.opacity = 1;
+    }, 200); // Delay allows for smoother transition
 }
 
 function createPagination() {

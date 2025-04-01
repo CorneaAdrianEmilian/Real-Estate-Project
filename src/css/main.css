@@ -265,4 +265,13 @@ main {
   padding: 20px;
 }
 
+button {
+  transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+  background-color: rgb(33.1380753138, 125.1882845188, 186.8619246862);
+  transform: scale(1.1);
+}
+
 /*# sourceMappingURL=main.css.map */

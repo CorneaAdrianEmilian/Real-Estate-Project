@@ -18,3 +18,12 @@ main {
     text-align: center;
     padding: 20px;
 }
+
+button {
+    transition: all 0.3s ease-in-out;
+  }
+  
+  button:hover {
+    background-color: darken(#3498db, 10%);
+    transform: scale(1.1);
+  }
