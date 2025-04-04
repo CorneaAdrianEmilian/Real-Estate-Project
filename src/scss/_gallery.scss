@@ -1,7 +1,7 @@
-@use 'mixins';  // Import mixins at the top
+@use 'mixins';  
 
 .gallery {
-  @include mixins.flex-center;  // Using the flex-center mixin to center gallery items
+  @include mixins.flex-center; 
   flex-wrap: wrap;
   gap: 20px;
 }
@@ -19,7 +19,7 @@
   padding: 15px;
   border-radius: 8px;
   
-  @include mixins.box-shadow;  // Using box-shadow mixin
+  @include mixins.box-shadow; 
   
   text-align: center;
   opacity: 0;
@@ -30,7 +30,7 @@
 .gallery-card:hover {
   transform: scale(1.05);
   transition: transform 0.3s ease-in-out;
-  @include mixins.box-shadow(rgba(0, 0, 0, 0.2));  // Adding a different shadow on hover
+  @include mixins.box-shadow(rgba(0, 0, 0, 0.2));  
   cursor: pointer;
 }
 
@@ -49,7 +49,7 @@
   overflow: hidden;
   background: white;
   text-align: center;
-  @include mixins.box-shadow;  // Box shadow for the property card
+  @include mixins.box-shadow;  
 }
 
 .property-card img {
@@ -74,7 +74,7 @@ header h1 {
 }
 
 #pagination {
-  @include mixins.flex-center;  // Use mixin to center pagination buttons
+  @include mixins.flex-center;  
   margin-top: 20px;
   gap: 5px;
   display: none;
