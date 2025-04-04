@@ -1,40 +1,38 @@
+@use 'mixins';  // Import mixins at the top
+
 .gallery {
-  display: flex;
-  flex-wrap: wrap; 
-  gap: 20px; 
-  justify-content: center; 
+  @include mixins.flex-center;  // Using the flex-center mixin to center gallery items
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
-
 #gallery-container {
-  min-height: 650px; 
+  min-height: 650px;
 }
 
 .gallery-card {
-  width: calc(20% - 20px); 
-  max-width: 300px; 
-  min-width: 200px; 
+  width: calc(20% - 20px);
+  max-width: 300px;
+  min-width: 200px;
   box-sizing: border-box;
   background-color: #fff;
   padding: 15px;
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  
+  @include mixins.box-shadow;  // Using box-shadow mixin
+  
   text-align: center;
-
   opacity: 0;
   transform: translateY(20px);
   animation: fadeInUp 0.5s ease-out forwards;
 }
 
-
 .gallery-card:hover {
   transform: scale(1.05);
   transition: transform 0.3s ease-in-out;
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+  @include mixins.box-shadow(rgba(0, 0, 0, 0.2));  // Adding a different shadow on hover
   cursor: pointer;
 }
-
-
 
 .gallery-card img {
   width: 100%;
@@ -42,9 +40,8 @@
   max-height: 200px;
   object-fit: cover;
   border-radius: 8px;
-  background-color: #f0f0f0;  /* Placeholder background */
+  background-color: #f0f0f0;
 }
-
 
 .property-card {
   border: 1px solid #ddd;
@@ -52,7 +49,7 @@
   overflow: hidden;
   background: white;
   text-align: center;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  @include mixins.box-shadow;  // Box shadow for the property card
 }
 
 .property-card img {
@@ -77,7 +74,7 @@ header h1 {
 }
 
 #pagination {
-  justify-content: center;
+  @include mixins.flex-center;  // Use mixin to center pagination buttons
   margin-top: 20px;
   gap: 5px;
   display: none;
@@ -93,26 +90,22 @@ header h1 {
   border-radius: 5px;
   cursor: pointer;
   margin-top: 20px;
-
 }
 
 #pagination button:active {
   background-color: #1f6a91;
 }
 
-
 #pagination button:hover {
   background-color: #2980b9;
 }
 
-
-
 #filters {
-  display: flex;
+  @include mixins.flex-center;  // Using mixin to center filters
   flex-wrap: wrap;
   gap: 10px;
   justify-content: center;
-  align-items: center;  /* Ensures vertical alignment */
+  align-items: center;
   margin-bottom: 20px;
   padding: 10px;
 }
@@ -121,7 +114,7 @@ header h1 {
 #filters select, 
 #filters input, 
 #apply-filters {
-  vertical-align: middle;  
+  vertical-align: middle;
 }
 
 #filters select, 
@@ -138,14 +131,12 @@ header h1 {
   border: none;
   cursor: pointer;
   padding: 10px 15px;
-  position: static; /* Ensures normal positioning */
+  position: static;
 }
 
 #apply-filters:hover {
   background-color: #2980b9;
 }
-
-
 
 @keyframes fadeInUp {
   from {
@@ -158,64 +149,54 @@ header h1 {
   }
 }
 
-
-
-
 @media (max-width: 768px) {
-
   #filters {
     flex-direction: column;
     align-items: center;
   }
 
   #apply-filters {
-    width: 100%;  
-    max-width: 200px; 
+    width: 100%;
+    max-width: 200px;
   }
 
   .gallery {
-    justify-content: center; 
+    justify-content: center;
   }
 
   .gallery-card {
     width: calc(50% - 20px);
   }
 
-
   #gallery-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-
   }
 
   #pagination {
-      text-align: center;
+    text-align: center;
   }
 }
 
 @media (max-width: 480px) {
-
-
   #filters {
     flex-direction: column;
     align-items: center;
   }
 
-
   #gallery-container {
-    display: flex; 
+    display: flex;
     flex-direction: column;
-    align-items: center; 
+    align-items: center;
   }
 
   .gallery {
-    justify-content: center; 
+    justify-content: center;
   }
 
   .gallery-card {
-    width: 100%; 
+    width: 100%;
   }
-
 }
 
 @media (max-width: 320px) {
@@ -224,7 +205,7 @@ header h1 {
   }
 
   .gallery-card h2 {
-    font-size: 16px; 
+    font-size: 16px;
   }
 
   .gallery-card p {
@@ -232,6 +213,6 @@ header h1 {
   }
 
   #pagination button {
-    padding: 5px 10px; 
+    padding: 5px 10px;
   }
 }

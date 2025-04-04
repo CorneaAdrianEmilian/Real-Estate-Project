@@ -289,6 +289,7 @@ body {
   overflow-x: hidden;
   max-width: 100vw;
   height: 100%;
+  margin: 0;
 }
 
 main {
@@ -302,7 +303,7 @@ button {
 }
 
 button:hover {
-  background-color: rgb(36.7380753138, 138.7882845188, 207.1619246862);
+  background-color: rgb(33.1380753138, 125.1882845188, 186.8619246862);
   transform: scale(1.1);
 }
 
