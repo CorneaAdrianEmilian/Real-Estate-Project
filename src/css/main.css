@@ -121,9 +121,6 @@ footer p {
   align-items: center;
   flex-wrap: wrap;
   gap: 20px;
-}
-
-#gallery-container {
   min-height: 650px;
 }
 

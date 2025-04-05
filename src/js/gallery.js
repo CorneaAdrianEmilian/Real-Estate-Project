@@ -2,7 +2,6 @@ let currentPage = 1;
 const itemsPerPage = 10;
 let data = [];
 let filteredData = [];
-const params = new URLSearchParams(window.location.search);
 
 
 const view = new URLSearchParams(window.location.search).get("view") || "sale";

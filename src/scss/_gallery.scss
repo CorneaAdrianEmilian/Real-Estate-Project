@@ -4,11 +4,11 @@
   @include mixins.flex-center; 
   flex-wrap: wrap;
   gap: 20px;
+  min-height: 650px;
+
 }
 
-#gallery-container {
-  min-height: 650px;
-}
+
 
 .gallery-card {
   width: 330px;

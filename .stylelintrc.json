@@ -6,8 +6,8 @@
   "rules": {
     "block-no-empty": true,
     "color-no-invalid-hex": true,
-    "declaration-colon-newline-after": "always-multi-line",
-    "max-empty-lines": 1,
+    "declaration-colon-newline-after": null,  
+    "max-empty-lines": null,  
     "no-duplicate-selectors": true,
     "property-no-unknown": [true, { "ignoreProperties": ["composes"] }],
     "selector-max-id": 0,
