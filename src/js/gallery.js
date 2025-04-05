@@ -2,36 +2,33 @@ let currentPage = 1;
 const itemsPerPage = 10;
 let data = [];
 let filteredData = [];
-let propertyType = 'for-sale'; // Default to "for-sale"
+const params = new URLSearchParams(window.location.search);
 
-// Check URL parameters for property type (for-sale or for-rent)
-const urlParams = new URLSearchParams(window.location.search);
-if (urlParams.has('type')) {
-    propertyType = urlParams.get('type');
-}
+
+const view = new URLSearchParams(window.location.search).get("view") || "sale";
 
 document.addEventListener("DOMContentLoaded", function () {
     fetch("./data.json")
         .then(response => response.json())
         .then(fetchedData => {
-            // We check if the price contains "/month" and parse accordingly
-            data = fetchedData.map(item => {
-                const priceIsRent = item.price.includes("/month"); // Check if it's a rental
-                return {
-                    ...item,
-                    price: priceIsRent ? item.price : parseFloat(item.price.replace(/[^0-9.]/g, "")), 
-                    size: parseFloat(item.size.replace(/[^0-9.]/g, "")),
-                    isRent: priceIsRent // Add a flag to identify rental properties
-                };
-            });
+
+            data = fetchedData.map(item => ({
+                ...item,
+                priceOriginal: item.price, 
+                price: parseFloat(item.price.replace(/[^0-9.]/g, "")), 
+                size: parseFloat(item.size.replace(/[^0-9.]/g, "")) 
+            }));
             
+
             filteredData = data.filter(property => {
-                if (propertyType === 'for-sale') {
-                    return !property.isRent; // Filter out rentals if we are looking for sale properties
-                } else {
-                    return property.isRent; // Filter out sales if we are looking for rentals
+                if (view === "rent") {
+                    return property.priceOriginal.includes("/month"); 
+                } else if (view === "sale") {
+                    return !property.priceOriginal.includes("/month"); 
                 }
+                return true; 
             });
+
 
             displayGallery();
             createPagination();
@@ -44,15 +41,18 @@ document.addEventListener("DOMContentLoaded", function () {
 function displayGallery() {
     const galleryContainer = document.querySelector("#gallery-container");
 
+
     galleryContainer.style.opacity = 0;
 
     setTimeout(() => {
         galleryContainer.innerHTML = "";
 
+
         const startIndex = (currentPage - 1) * itemsPerPage;
         const endIndex = startIndex + itemsPerPage;
         const currentPageData = filteredData.slice(startIndex, endIndex);
 
+ 
         currentPageData.forEach(property => {
             const card = document.createElement("div");
             card.classList.add("gallery-card");
@@ -61,13 +61,16 @@ function displayGallery() {
                 <img src="${property.image}" alt="${property.title}" loading="lazy">
                 <h2 tabindex="0">${property.title}</h2> 
                 <p tabindex="0"><strong>Location:</strong> ${property.location}</p> 
-                <p tabindex="0"><strong>Price:</strong> ${property.isRent ? property.price : property.price + ' €'}</p>
+                <p tabindex="0"><strong>Price:</strong> ${property.priceOriginal}</p> 
                 <p tabindex="0"><strong>Size:</strong> ${property.size} sqm</p> 
             `;
             galleryContainer.appendChild(card);
         });
 
+
         galleryContainer.style.opacity = 1;
+
+
         document.querySelector("#pagination").style.display = "flex";
     }, 200); 
 }
@@ -77,6 +80,13 @@ function createPagination() {
     const paginationContainer = document.querySelector("#pagination");
 
     paginationContainer.innerHTML = "";
+
+
+    if (totalPages <= 1) {
+        paginationContainer.style.display = "none";
+    } else {
+        paginationContainer.style.display = "flex";
+    }
 
     for (let i = 1; i <= totalPages; i++) {
         const button = document.createElement("button");
@@ -91,18 +101,22 @@ function createPagination() {
 }
 
 function applyFilters() {
-    
-    const params = new URLSearchParams(window.location.search);
-    const view = params.get("view");
-    
+
     filteredData = data.filter(property => {
         if (view === "rent") {
-            return property.price.includes("/month");
+            return property.priceOriginal.includes("/month");
         } else if (view === "sale") {
-            return !property.price.includes("/month");
+            return !property.priceOriginal.includes("/month"); 
         }
         return true;
     });
+
+    const locationFilter = document.querySelector("#location-filter").value.toLowerCase();
+    if (locationFilter) {
+        filteredData = filteredData.filter(property => 
+            property.location.toLowerCase().includes(locationFilter)
+        );
+    }
 
     const sortOption = document.querySelector("#sort").value;
     switch (sortOption) {
@@ -126,13 +140,12 @@ function applyFilters() {
             break;
     }
 
-    const locationFilter = document.querySelector("#location-filter").value.toLowerCase();
-    if (locationFilter) {
-        filteredData = filteredData.filter(property => 
-            property.location.toLowerCase().includes(locationFilter)
-        );
-    }
 
     currentPage = 1;
+
+
+    createPagination();
+
+
     displayGallery();
 }
