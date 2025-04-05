@@ -1,3 +1,4 @@
+@charset "UTF-8";
 header {
   background-color: #3498db;
   padding: 10px;
@@ -13,6 +14,51 @@ header nav a {
   color: white;
   text-decoration: none;
   font-weight: bold;
+}
+
+.gallery-menu {
+  position: relative;
+}
+.gallery-menu > a {
+  position: relative;
+  padding-right: 20px;
+}
+.gallery-menu > a::after {
+  content: "▾";
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.8em;
+}
+.gallery-menu .submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #3498db;
+  border-radius: 8px;
+  padding: 10px 0;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
+  list-style: none;
+  min-width: 160px;
+  z-index: 1000;
+}
+.gallery-menu .submenu li {
+  padding: 0;
+}
+.gallery-menu .submenu li a {
+  display: block;
+  padding: 10px 16px;
+  color: white;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+.gallery-menu .submenu li a:hover {
+  background-color: rgb(32.6560669456, 123.3673640167, 184.1439330544);
+}
+.gallery-menu:hover .submenu {
+  display: block;
 }
 
 footer {

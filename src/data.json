@@ -86,7 +86,93 @@
       "price": "$5,000,000",
       "size": "500 sqm",
       "image": "images/estate.jpg"
-  }
-
-
+  },
+  {
+    "id": 12,
+    "title": "Downtown Loft",
+    "location": "Chicago, USA",
+    "price": "$2,500/month",
+    "size": "130 sqm",
+    "image": "images/loft.jpg"
+    },
+    {
+        "id": 13,
+        "title": "Seaside Bungalow",
+        "location": "San Diego, USA",
+        "price": "$3,200/month",
+        "size": "160 sqm",
+        "image": "images/bungalow.jpg"
+    },
+    {
+        "id": 14,
+        "title": "Urban Studio",
+        "location": "New York, USA",
+        "price": "$2,000/month",
+        "size": "75 sqm",
+        "image": "images/studio.jpg"
+    },
+    {
+        "id": 15,
+        "title": "Family Home",
+        "location": "Dallas, USA",
+        "price": "$2,800/month",
+        "size": "220 sqm",
+        "image": "images/family_home.jpg"
+    },
+    {
+        "id": 16,
+        "title": "Modern Townhouse",
+        "location": "Atlanta, USA",
+        "price": "$2,700/month",
+        "size": "200 sqm",
+        "image": "images/townhouse2.jpg"
+    },
+    {
+        "id": 17,
+        "title": "Lakeview Cottage",
+        "location": "Minneapolis, USA",
+        "price": "$2,400/month",
+        "size": "140 sqm",
+        "image": "images/cottage.jpg"
+    },
+    {
+        "id": 18,
+        "title": "High-Rise Apartment",
+        "location": "Seattle, USA",
+        "price": "$2,900/month",
+        "size": "110 sqm",
+        "image": "images/highrise.jpg"
+    },
+    {
+        "id": 19,
+        "title": "Desert Villa",
+        "location": "Phoenix, USA",
+        "price": "$3,100/month",
+        "size": "260 sqm",
+        "image": "images/desert_villa.jpg"
+    },
+    {
+        "id": 20,
+        "title": "Suburban Duplex",
+        "location": "Portland, USA",
+        "price": "$2,300/month",
+        "size": "180 sqm",
+        "image": "images/duplex.jpg"
+    },
+    {
+        "id": 21,
+        "title": "Garden Flat",
+        "location": "San Jose, USA",
+        "price": "$2,600/month",
+        "size": "100 sqm",
+        "image": "images/garden_flat.jpg"
+    },
+    {
+        "id": 22,
+        "title": "Eco-Friendly Home",
+        "location": "Boulder, USA",
+        "price": "$2,750/month",
+        "size": "190 sqm",
+        "image": "images/eco_home.jpg"
+    }
 ]

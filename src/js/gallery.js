@@ -1,18 +1,38 @@
 let currentPage = 1;
-const itemsPerPage = 10; 
-let data = [];  
-let filteredData = []; 
+const itemsPerPage = 10;
+let data = [];
+let filteredData = [];
+let propertyType = 'for-sale'; // Default to "for-sale"
+
+// Check URL parameters for property type (for-sale or for-rent)
+const urlParams = new URLSearchParams(window.location.search);
+if (urlParams.has('type')) {
+    propertyType = urlParams.get('type');
+}
 
 document.addEventListener("DOMContentLoaded", function () {
     fetch("./data.json")
         .then(response => response.json())
         .then(fetchedData => {
-            data = fetchedData.map(item => ({
-                ...item,
-                price: parseFloat(item.price.replace(/[^0-9.]/g, "")), 
-                size: parseFloat(item.size.replace(/[^0-9.]/g, ""))    
-            }));
-            filteredData = [...data];  
+            // We check if the price contains "/month" and parse accordingly
+            data = fetchedData.map(item => {
+                const priceIsRent = item.price.includes("/month"); // Check if it's a rental
+                return {
+                    ...item,
+                    price: priceIsRent ? item.price : parseFloat(item.price.replace(/[^0-9.]/g, "")), 
+                    size: parseFloat(item.size.replace(/[^0-9.]/g, "")),
+                    isRent: priceIsRent // Add a flag to identify rental properties
+                };
+            });
+            
+            filteredData = data.filter(property => {
+                if (propertyType === 'for-sale') {
+                    return !property.isRent; // Filter out rentals if we are looking for sale properties
+                } else {
+                    return property.isRent; // Filter out sales if we are looking for rentals
+                }
+            });
+
             displayGallery();
             createPagination();
         })
@@ -24,10 +44,10 @@ document.addEventListener("DOMContentLoaded", function () {
 function displayGallery() {
     const galleryContainer = document.querySelector("#gallery-container");
 
-    galleryContainer.style.opacity = 0; 
+    galleryContainer.style.opacity = 0;
 
     setTimeout(() => {
-        galleryContainer.innerHTML = ""; 
+        galleryContainer.innerHTML = "";
 
         const startIndex = (currentPage - 1) * itemsPerPage;
         const endIndex = startIndex + itemsPerPage;
@@ -41,16 +61,15 @@ function displayGallery() {
                 <img src="${property.image}" alt="${property.title}" loading="lazy">
                 <h2 tabindex="0">${property.title}</h2> 
                 <p tabindex="0"><strong>Location:</strong> ${property.location}</p> 
-                <p tabindex="0"><strong>Price:</strong> ${property.price} €</p> 
+                <p tabindex="0"><strong>Price:</strong> ${property.isRent ? property.price : property.price + ' €'}</p>
                 <p tabindex="0"><strong>Size:</strong> ${property.size} sqm</p> 
             `;
             galleryContainer.appendChild(card);
         });
 
-        galleryContainer.style.opacity = 1; 
+        galleryContainer.style.opacity = 1;
         document.querySelector("#pagination").style.display = "flex";
     }, 200); 
-
 }
 
 function createPagination() {
@@ -71,11 +90,20 @@ function createPagination() {
     }
 }
 
-
 function applyFilters() {
-    filteredData = [...data];
+    
+    const params = new URLSearchParams(window.location.search);
+    const view = params.get("view");
+    
+    filteredData = data.filter(property => {
+        if (view === "rent") {
+            return property.price.includes("/month");
+        } else if (view === "sale") {
+            return !property.price.includes("/month");
+        }
+        return true;
+    });
 
-  
     const sortOption = document.querySelector("#sort").value;
     switch (sortOption) {
         case "price-low":
@@ -98,14 +126,12 @@ function applyFilters() {
             break;
     }
 
-
     const locationFilter = document.querySelector("#location-filter").value.toLowerCase();
     if (locationFilter) {
         filteredData = filteredData.filter(property => 
             property.location.toLowerCase().includes(locationFilter)
         );
     }
-
 
     currentPage = 1;
     displayGallery();
