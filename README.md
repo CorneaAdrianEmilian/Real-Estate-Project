@@ -12,18 +12,14 @@
 3. Run Sass compilation:
     npm run compile
 
-4. Run linting:
 
-    npm run lint
+✨ Features
+✅ Responsive design using Flexbox & CSS Grid
 
+🏘️ Dynamic property listings loaded from a JSON file
 
-📌 Features
-Responsive design using Flexbox & CSS Grid
+🔍 Filtering and sorting functionality
 
-Dynamic property listings from a JSON file
+🖼️ Interactive image gallery with slider
 
-Filtering & sorting options
-
-Interactive image gallery
-
-Embedded Google Maps
+🗺️ Embedded Google Maps
