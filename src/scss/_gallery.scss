@@ -203,6 +203,7 @@ header h1 {
 
   .gallery-card {
     width: 100%;
+    min-width:initial;
   }
 
   .gallery-card {
@@ -228,4 +229,24 @@ header h1 {
   #pagination button {
     padding: 5px 10px;
   }
+
+}
+@media (max-width: 250px) 
+{
+  
+  #filters select,
+  #filters input,
+  #apply-filters {
+    width: 100%;       
+    max-width: 100%;  
+    box-sizing: border-box;
+  }
+
+  #filters select {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    font-size: 9px; 
+  }
+
 }

@@ -3,20 +3,36 @@
 
 header {
   background-color: var.$primary-color;
-  padding: 10px;
+  padding: 20px 10px;
+  width: 100%; 
+  box-sizing: border-box; 
 
-  nav ul {
+  nav {
+    width: 100%; 
+    box-sizing: border-box;
+
+    ul {
       list-style: none;
       padding: 0;
+      margin: 0;
       display: flex;
       justify-content: center;
       gap: 20px;
+      flex-wrap: wrap; 
+    }
   }
 
   nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 12px;
+    transition: background-color 0.3s ease;
+    border-radius: 6px;
+
+    &:hover {
+      background-color: color.scale(var.$primary-color, $lightness: -15%);
+    }
   }
 }
 
